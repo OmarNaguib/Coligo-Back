@@ -1,0 +1,17 @@
+const asyncHandler = require("express-async-handler");
+const Quiz = require("../../../models/Quiz");
+
+const createQuiz = asyncHandler(async (req, res, next) => {
+  const quiz = new Quiz({
+    title: req.body.title,
+    type: req.body.type,
+    link: req.body.link,
+    course: req.body.course,
+    topic: req.body.topic,
+    dueDate: req.body.dueDate,
+  });
+  const result = await quiz.save();
+  res.sendStatus(200);
+});
+
+module.exports = createQuiz;
