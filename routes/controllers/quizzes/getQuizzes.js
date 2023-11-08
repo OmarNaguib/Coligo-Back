@@ -1,10 +1,10 @@
 const asyncHandler = require("express-async-handler");
 const Quiz = require("../../../models/Quiz");
 
-const getQuizs = asyncHandler(async (req, res, next) => {
-  const quizs = await Quiz.find({ post: req.params.postId }).exec();
+const getQuizzes = asyncHandler(async (req, res, next) => {
+  const quizzes = await Quiz.find({ post: req.params.postId }).exec();
   res.status(200);
-  res.json({ quizs });
+  res.json({ quizzes });
 });
 
-module.exports = getQuizs;
+module.exports = getQuizzes;
